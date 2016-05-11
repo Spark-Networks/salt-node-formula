@@ -18,9 +18,9 @@ dummy_testfile_include:
     - name: test.ping
     - require:
 {%- if pillar_get('node:install_from_source') %}
-      - sls: .source
+      - sls: node.source
 {%- elif pillar_get('node:install_from_binary') %}
-      - sls: .binary
+      - sls: node.binary
 {%- else %}
-      - sls: .pkg
+      - sls: node.pkg
 {% endif %}
