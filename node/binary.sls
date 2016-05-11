@@ -16,3 +16,4 @@ Copy lib:
     - cwd: /usr/local/src/{{ pkgname }}/
     - name: cp -r bin/ include/ lib/ share/ /usr/local/
     - unless: cmp /usr/local/bin/node /usr/local/src/{{ pkgname }}/bin/node
+    - reload_modules: True
