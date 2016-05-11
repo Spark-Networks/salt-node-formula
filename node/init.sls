@@ -16,3 +16,11 @@ dummy_testfile_include:
   module:
     - wait
     - name: test.ping
+    - require:
+{%- if pillar_get('node:install_from_source') %}
+      - sls: .source
+{%- elif pillar_get('node:install_from_binary') %}
+      - sls: .binary
+{%- else %}
+      - sls: .pkg
+{% endif %}
